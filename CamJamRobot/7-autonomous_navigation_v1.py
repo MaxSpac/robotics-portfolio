@@ -72,7 +72,7 @@ def right_led_blink(turntime, stop_blinking):
     led3.off()
     led4.off()  # Turn off LED 
 
-# LED function for turning left
+# Here: LED function for turning left
 
 # Return True if sensor senses an obstacle
 def is_near_obstacle(localhownear):

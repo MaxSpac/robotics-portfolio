@@ -27,62 +27,62 @@ try:
         led2.on()
         led3.on()
         led4.on()
-        time.sleep(1)   # drei mal links blinken, dann drei mal rechts blinken, blink
+        time.sleep(1)   # Blink three times left, then three times right; on
         led1.off()
         led2.off()
         led3.on()
         led4.off()
-        time.sleep(0.333) # aus
+        time.sleep(0.333) # Off
         led1.off()
         led2.off()
         led3.off()
         led4.off()
-        time.sleep(0.333) # blink
+        time.sleep(0.333) # On
         led1.off()
         led2.off()
         led3.on()
         led4.off()
-        time.sleep(0.333) # aus
+        time.sleep(0.333) # Off
         led1.off()
         led2.off()
         led3.off()
         led4.off()
-        time.sleep(0.333) # blink
+        time.sleep(0.333) # On
         led1.off()
         led2.off()
         led3.on()
         led4.off()
-        time.sleep(0.333) # aus
+        time.sleep(0.333) # Off
         led1.off()
         led2.off()
         led3.off()
         led4.off()
-        time.sleep(0.333) # blink
+        time.sleep(0.333) # On
         led1.off()
         led2.off()
         led3.off()
         led4.on()
-        time.sleep(0.333) # aus
+        time.sleep(0.333) # Off
         led1.off()
         led2.off()
         led3.off()
         led4.off()
-        time.sleep(0.333) # blink
+        time.sleep(0.333) # On
         led1.off()
         led2.off()
         led3.off()
         led4.on()
-        time.sleep(0.333) # aus
+        time.sleep(0.333) # Off
         led1.off()
         led2.off()
         led3.off()
         led4.off()
-        time.sleep(0.333) # blink
+        time.sleep(0.333) # On
         led1.off()
         led2.off()
         led3.off()
         led4.on()
-        time.sleep(0.333) # aus
+        time.sleep(0.333) # Off
         led1.off()
         led2.off()
         led3.off()
