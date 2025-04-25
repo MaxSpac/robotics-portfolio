@@ -44,9 +44,7 @@ sensorHigh = DistanceSensor(echo=pinEchoHigh, trigger=pinTriggerHigh)
 sensorLow = DistanceSensor(echo=pinEchoLow, trigger=pinTriggerLow)
 
 
-# Initialisiere Sensor
-print("Warm up sensor ...")
-time.sleep(2)
+
 
 # Distance variables
 hownear = 35
@@ -109,48 +107,54 @@ def turn_right():
     time.sleep(turntime)
     robot.value = motorstop
 
-try:
-    # Repeat the next intended block forever
-    while True:
+if __name__=='__main__': # Prevents code from running while test script runs
+    try:
+        # Initialize sensor
+        print("Warm up sensor ...")
+        time.sleep(2)
+
+        # Repeat the next intended block forever
+        while True:
+            
+            led2.on()
+            robot.value = motorforward
+            time.sleep(0.1)
+
+            # In case you want to activate drunk driver mode
+            #robot.value = motorforwardleft 
+            #time.sleep(3)
+            #robot.value = motorforwardright
+            #time.sleep(3)
+            if is_near_obstacle(hownear):
+                led2.off()
+                led1.on()
+                robot.value = motorstop
+                time.sleep(1)
+                led1.off()
+                move_backwards()
+                led1.on()
+
+                # Event to stop threads
+                stop_blinking = threading.Event()
+
+                # Threading events for parallel turning and blinking
+                turn_right_thread = threading.Thread(target=turn_right)
+                blink_right_thread = threading.Thread(target=right_led_blink, args=(turntime, stop_blinking))
+
+                # Start threads
+                turn_right_thread.start()
+                blink_right_thread.start()
+
+                # Pauses script til thread finished
+                turn_right_thread.join()
+                stop_blinking.set()
+                blink_right_thread.join()
+
+                print("Forward")
+
+
+    # press CTRL+C to cleanup and stop
+    except KeyboardInterrupt:
+        robot.stop()
         
-        led2.on()
-        robot.value = motorforward
-        time.sleep(0.1)
-        #
-       #robot.value = motorforwardleft
-       #time.sleep(3)
-       #robot.value = motorforwardright
-       #time.sleep()
-        if is_near_obstacle(hownear):
-            led2.off()
-            led1.on()
-            robot.value = motorstop
-            time.sleep(1)
-            led1.off()
-            move_backwards()
-            led1.on()
-
-            # Event to stop threads
-            stop_blinking = threading.Event()
-
-            # Threading events for parallel turning and blinking
-            turn_right_thread = threading.Thread(target=turn_right)
-            blink_right_thread = threading.Thread(target=right_led_blink, args=(turntime, stop_blinking))
-
-            # Start threads
-            turn_right_thread.start()
-            blink_right_thread.start()
-
-            # Pauses script til thread finished
-            turn_right_thread.join()
-            stop_blinking.set()
-            blink_right_thread.join()
-
-            print("Forward")
-
-
-# press CTRL+C to cleanup and stop
-except KeyboardInterrupt:
-    robot.stop()
-    
 
