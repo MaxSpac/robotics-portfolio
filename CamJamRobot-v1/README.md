@@ -1,4 +1,4 @@
-# CamJam Robot with Obstacle Avoidance
+# CamJam Robot with Obstacle Avoidance (v1)
 
 ## Overview
 
@@ -20,18 +20,12 @@ This project marks my initial steps in robotics, building hands-on experience wi
 - **Setup**: Configured Raspberry Pi via ssh and ultrasonic sensor (Completed: 2025-04-19).
 - **Basic Control**: Implemented motor control and sensor reading (Completed: 2025-04-20).
 - **Obstacle Avoidance**: Developed state machine for autonomous navigation (Completed: Expected 2025-04-20).
-- **Future Goals**: Port the project to ROS for simulation in Gazebo and enhance with advanced sensors.
 
 ## Status
 
-- **Current**: Basic obstacle avoidance implemented; refining state machine logic.
-- **Next Steps**: Establish connection with smartphone to run certain scripts; integrate with ROS and simulate in Gazebo.
-
-## Demo
-
-Video and screenshots will be added upon completion of the state machine.
+Finished
 
 ## Contact
 
-For feedback or collaboration, reach me at maxswarz@gmail.com.
+For feedback or collaboration, reach me at max@blackhead-metaverse.com.
 
